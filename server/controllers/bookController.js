@@ -50,7 +50,7 @@ exports.updateBook = async (req, res) => {
     }
 
     // 4. Update the book and send the new version back
-    book = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    book = await Book.findByIdAndUpdate(req.params.id, req.body, { returnDocument: 'after' });
     res.status(200).json(book);
   } catch (error) {
     console.error('Error updating book:', error);
