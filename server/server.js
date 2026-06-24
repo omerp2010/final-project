@@ -10,7 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 const authRoutes = require('./routes/authRoutes');
+const bookRoutes = require('./routes/bookRoutes');
+
 app.use('/api/auth', authRoutes);
+app.use('/api/books', bookRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Connected to MongoDB'))
